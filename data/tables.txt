@@ -1,0 +1,20 @@
+UTILISATEUR (__idUtilisateur__, profilUtilisateur, nomUtilisateur, prenomUtilisateur, email, motDePasse, montant, pointsFidelite)
+// ex: 1, Administrateur, Garcia, Christophe, gc@gmail.com, mdpHashé, 0, 0
+// ex: 2, Inscrit/Abonné, Meric-Pons, Mathis, mpm@gmail.com, mdp2Hashé, 140, 52
+// montant/pointsFidelite >= 0 ssi abonné (= 0 si inscrit ou admin (trigger))
+
+RECHARGE (__idRecharge__, nomRecharge, puissanceRecharge, typeCourant, accesRecharge)
+// ex: 1, Accélérée, 22KW, Alternatif triphasé, payant
+// ex: 2, Standard, 3KW, Alternatif monophasé, gratuit
+
+BORNE (__idBorne__, longitude, latitude, accesBorne)
+// ex: 1, 48.157469, 17.12937, public/privé
+
+LIAISON_BORNE_RECHARGE (__#idBorne, #idRecharge__)
+// ex: 1, 1
+
+LIAISON_UTILISATEUR_BORNE (__#idUtilisateur, #idBorne__, #idTechnicien, prixPose, datePose)
+// ex: 1, 1, 1, 1300, 27/12/2021
+
+TECHNICIEN (__idTechnicien__, nomTechnicien, prenomTechnicien)
+// ex: 1, Le Pors, Yanis
