@@ -8,7 +8,7 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
-import logo from "../logo.png";
+import logo from "../data/logo.png";
 
 export default class Navigation extends Component {
   constructor(props) {
