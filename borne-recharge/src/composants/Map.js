@@ -85,6 +85,8 @@ export default class Map extends Component {
               lat={borne.lat}
               lng={borne.lng}
               recharges={borne.recharges}
+              marker={markerBlue}
+              // style={{ position: "relative", left: "-30%" }}
             />
           ))}
         </GoogleMapReact>

@@ -7,16 +7,21 @@ export default class Borne extends Component {
     this.state = {
       lat: this.props.lat,
       lng: this.props.lng,
-      recharges: this.props.recharegs,
+      recharges: this.props.recharges,
     };
   }
 
   render() {
     return (
       <div className="div-principal-borne">
-        <text>
-          {this.state.lat}, {this.state.lng}
-        </text>
+        <div className="image-marker">
+          <img
+            alt="Marker borne recharge"
+            src={this.props.marker}
+            width="39"
+            height="50"
+          />
+        </div>
       </div>
     );
   }

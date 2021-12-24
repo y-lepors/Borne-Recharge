@@ -1,13 +1,5 @@
 import React, { Component } from "react";
-import {
-  Navbar,
-  Container,
-  Nav,
-  NavDropdown,
-  Form,
-  FormControl,
-  Button,
-} from "react-bootstrap";
+import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 import logo from "../data/logo.png";
 
 export default class Navigation extends Component {
@@ -31,17 +23,6 @@ export default class Navigation extends Component {
             />{" "}
             Borne Recharge
           </Navbar.Brand>
-
-          {/* Barre de recherche */}
-          <Form className="d-flex">
-            <FormControl
-              type="search"
-              placeholder="Entrez une adresse"
-              className="me-2"
-              aria-label="Search"
-            />
-            <Button variant="outline-primary">Chercher</Button>
-          </Form>
 
           {/* Reste de la barre de navigation */}
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
