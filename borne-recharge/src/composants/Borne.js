@@ -4,13 +4,7 @@ import "../style/Borne.css";
 export default class Borne extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      idBorne: this.props.idBorne,
-      lat: this.props.lat,
-      lng: this.props.lng,
-      recharges: this.props.recharges,
-      clicked: this.props.clicked,
-    };
+    this.state = {};
   }
 
   render() {

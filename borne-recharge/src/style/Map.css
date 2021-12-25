@@ -1,4 +1,48 @@
-.div-principal-map {
-  height: 600px;
+.ensemble-map {
   width: 100%;
+  height: 600px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.liste-recharges-map {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  background-color: #de8516;
+  word-wrap: "break-word";
+}
+
+.titre-liste-aucuneBorne-map {
+  display: block;
+  color: white;
+  width: 100%;
+  height: 100%;
+}
+
+.titre-liste-aucuneBorne-map-mot {
+  text-align: center;
+}
+
+.liste-recharges-map-titres {
+  height: 12%;
+}
+
+.liste-recharges-map-recharges {
+  width: 100%;
+  height: 88%;
+  background-color: white;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
+.map {
+  width: 80%;
+  height: 100%;
+}
+
+.titre-liste-bornes-map {
+  display: block;
+  width: 100%;
+  text-align: center;
 }

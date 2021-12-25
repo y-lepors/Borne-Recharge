@@ -5,6 +5,7 @@ import Borne from "./Borne";
 import BarreRecherche from "../composants/BarreRecherche";
 import markerOrange from "../data/markerOrange.png";
 import markerBlue from "../data/markerBlue.png";
+import Recharge from "./Recharge";
 
 export default class Map extends Component {
   constructor(props) {
@@ -42,6 +43,7 @@ export default class Map extends Component {
           clicked: false,
         },
       ],
+      borneCliquee: null,
     };
 
     this.onClickMarker = this.onClickMarker.bind(this);
@@ -71,6 +73,20 @@ export default class Map extends Component {
       },
       {
         idRecharge: 1,
+        nomRecharge: "Standard",
+        puissanceRecharge: 3,
+        typeCourant: "Alternatif monophasé",
+        accesRecharge: "gratuit",
+      },
+      {
+        idRecharge: 3,
+        nomRecharge: "Accélérée",
+        puissanceRecharge: 22,
+        typeCourant: "Alternatif triphasé",
+        accesRecharge: "Payant",
+      },
+      {
+        idRecharge: 4,
         nomRecharge: "Standard",
         puissanceRecharge: 3,
         typeCourant: "Alternatif monophasé",
@@ -173,7 +189,11 @@ export default class Map extends Component {
       (borne) =>
         (borne.clicked = idBorne === borne.idBorne ? !borne.clicked : false)
     );
-    this.setState({ bornes: bornesAJour });
+    let borne = bornesAJour.find((borne) => borne.idBorne === idBorne);
+    this.setState({
+      bornes: bornesAJour,
+      borneCliquee: borne.clicked ? borne : null,
+    });
   }
 
   render() {
@@ -190,30 +210,75 @@ export default class Map extends Component {
           </div>
         )}
 
-        {/* Google Map */}
-        <GoogleMapReact
-          defaultCenter={this.state.center}
-          defaultZoom={this.state.zoom}
-          yesIWantToUseGoogleMapApiInternals
-          onGoogleApiLoaded={({ map, maps }) => this.apiHasLoaded(map, maps)}
-          bootstrapURLKeys={{
-            key: "AIzaSyD5PztRzJq_ii80WpXSeS2skNr9dmKF4KA",
-            libraries: ["places", "geometry"],
-          }}
-        >
-          {/* Liste des bornes */}
-          {this.state.bornes.map((borne) => (
-            <Borne
-              idBorne={borne.idBorne}
-              lat={borne.lat}
-              lng={borne.lng}
-              recharges={borne.recharges}
-              clicked={borne.clicked}
-              marker={borne.clicked ? markerOrange : markerBlue}
-              onClickMarker={() => this.onClickMarker(borne.idBorne)}
-            />
-          ))}
-        </GoogleMapReact>
+        <div className="ensemble-map">
+          {/* Liste des recharges de la borne sélectionnée */}
+          <div className="liste-recharges-map">
+            {this.state.borneCliquee !== null && (
+              <div className="titre-liste-bornes-map">
+                <div className="liste-recharges-map-titres">
+                  <h4>Borne {this.state.borneCliquee.idBorne}</h4>
+                  <p>
+                    <b>
+                      {" "}
+                      {this.state.borneCliquee.recharges.length}{" "}
+                      {this.state.borneCliquee.recharges.length > 1
+                        ? "recharges disponibles"
+                        : "recharge disponible"}
+                    </b>
+                  </p>
+                </div>
+
+                {/* Recharges */}
+                <div className="liste-recharges-map-recharges">
+                  {this.state.borneCliquee.recharges.map((recharge) => (
+                    <Recharge
+                      idRecharge={recharge.idRecharge}
+                      nomRecharge={recharge.nomRecharge}
+                      puissanceRecharge={recharge.puissanceRecharge}
+                      typeCourant={recharge.typeCourant}
+                      accesRecharge={recharge.accesRecharge}
+                    />
+                  ))}
+                </div>
+              </div>
+            )}
+            {this.state.borneCliquee === null && (
+              <div className="titre-liste-aucuneBorne-map">
+                <h4 className="titre-liste-aucuneBorne-map-mot">Aucune</h4>
+                <h4 className="titre-liste-aucuneBorne-map-mot">Borne</h4>
+                <h4 className="titre-liste-aucuneBorne-map-mot">
+                  Sélectionnée
+                </h4>
+              </div>
+            )}
+          </div>
+
+          {/* Google Map */}
+          <div className="map">
+            <GoogleMapReact
+              defaultCenter={this.state.center}
+              defaultZoom={this.state.zoom}
+              yesIWantToUseGoogleMapApiInternals
+              onGoogleApiLoaded={({ map, maps }) =>
+                this.apiHasLoaded(map, maps)
+              }
+              bootstrapURLKeys={{
+                key: "AIzaSyD5PztRzJq_ii80WpXSeS2skNr9dmKF4KA",
+                libraries: ["places", "geometry"],
+              }}
+            >
+              {/* Liste des bornes */}
+              {this.state.bornes.map((borne) => (
+                <Borne
+                  lat={borne.lat}
+                  lng={borne.lng}
+                  marker={borne.clicked ? markerOrange : markerBlue}
+                  onClickMarker={() => this.onClickMarker(borne.idBorne)}
+                />
+              ))}
+            </GoogleMapReact>
+          </div>
+        </div>
       </div>
     );
   }
