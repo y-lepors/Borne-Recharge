@@ -12,11 +12,31 @@ export default class Map extends Component {
       center: { lat: 48.390317071654714, lng: -4.485942630953148 },
       zoom: 12,
       bornes: [
-        { lat: 48.393336061046526, lng: -4.52146233829468, recharges: [] },
-        { lat: 48.398741890988425, lng: -4.4947074704475325, recharges: [] },
-        { lat: 48.390193174993925, lng: -4.477712994402111, recharges: [] },
+        {
+          idBorne: 0,
+          lat: 48.393336061046526,
+          lng: -4.52146233829468,
+          recharges: [],
+          clicked: false,
+        },
+        {
+          idBorne: 1,
+          lat: 48.398741890988425,
+          lng: -4.4947074704475325,
+          recharges: [],
+          clicked: false,
+        },
+        {
+          idBorne: 2,
+          lat: 48.390193174993925,
+          lng: -4.477712994402111,
+          recharges: [],
+          clicked: false,
+        },
       ],
     };
+
+    this.onClickMarker = this.onClickMarker.bind(this);
   }
 
   componentDidMount() {
@@ -61,7 +81,9 @@ export default class Map extends Component {
     this.setState({ bornes });
   }
 
-  // Récupère les coordonnées de la localisation actuelle
+  /**
+   * Récupère les coordonnées de la localisation actuelle.
+   */
   setCurrentLocation() {
     if ("geolocation" in navigator) {
       navigator.geolocation.getCurrentPosition((position) => {
@@ -70,6 +92,22 @@ export default class Map extends Component {
         });
       });
     }
+  }
+
+  /**
+   * Met à jour le status "clicked" de toutes les bornes.
+   * Vrai sur la borne cliquée, si et seulement si elle ne l'était pas déjà, faux sinon.
+   * Faux sur toutes les autres bornes.
+   *
+   * @param idBorne id de la borne cliquée
+   */
+  onClickMarker(idBorne) {
+    let bornesAJour = this.state.bornes;
+    bornesAJour.map(
+      (borne) =>
+        (borne.clicked = idBorne === borne.idBorne ? !borne.clicked : false)
+    );
+    this.setState({ bornes: bornesAJour });
   }
 
   render() {
@@ -82,11 +120,13 @@ export default class Map extends Component {
         >
           {this.state.bornes.map((borne) => (
             <Borne
+              idBorne={borne.idBorne}
               lat={borne.lat}
               lng={borne.lng}
               recharges={borne.recharges}
-              marker={markerBlue}
-              // style={{ position: "relative", left: "-30%" }}
+              clicked={borne.clicked}
+              marker={borne.clicked ? markerOrange : markerBlue}
+              onClickMarker={() => this.onClickMarker(borne.idBorne)}
             />
           ))}
         </GoogleMapReact>
