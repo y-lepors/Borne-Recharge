@@ -1,11 +1,20 @@
-.div-principal-selection-formation {
-  width: 25;
+.div-bornes-contenu {
+  display: flex;
 }
 
-.titre-selection-formations,
-.button-ajouter-formation {
-  display: flex;
-  justify-content: center;
+.titre-bornes {
+  color: #de8516;
+  position: relative;
+  text-align: center;
+}
+
+.bornes-sous-titre {
+  text-align: center;
+}
+
+.div-selections-bornes {
+  background-color: aqua;
+  width: 50%;
 }
 
 .div-selection {
@@ -17,4 +26,9 @@
 
 #dropdown-basic {
   overflow-wrap: break-word;
+}
+
+.bornes-formulaire {
+  background-color: blueviolet;
+  width: 50%;
 }
