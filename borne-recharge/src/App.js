@@ -3,7 +3,7 @@ import "./style/App.css";
 import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
 import Navigation from "./composants/Navigation";
 import Accueil from "./pages/Accueil";
-import Tarifs from "./pages/Tarifs";
+import Informations from "./pages/Informations";
 import Abonnements from "./pages/Abonnements";
 import Bornes from "./pages/Bornes";
 import Professionnels from "./pages/Professionnels";
@@ -19,7 +19,7 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Accueil />} />
-          <Route exact path="/Tarifs" element={<Tarifs />} />
+          <Route exact path="/Informations" element={<Informations />} />
           <Route exact path="/Abonnements" element={<Abonnements />} />
           <Route exact path="/Bornes" element={<Bornes />} />
           <Route exact path="/Professionnels" element={<Professionnels />} />

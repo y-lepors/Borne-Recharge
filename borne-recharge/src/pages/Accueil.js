@@ -13,6 +13,8 @@ export default class Accueil extends Component {
       <div className="div-principal-accueil">
         {/* Carte des bornes de recharge */}
         <Map />
+
+        {/* d'autres trucs... */}
       </div>
     );
   }

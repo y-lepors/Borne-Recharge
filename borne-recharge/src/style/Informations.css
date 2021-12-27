@@ -1,0 +1,16 @@
+.titre-tarifs {
+  color: #de8516;
+  position: relative;
+  text-align: center;
+}
+
+.para1-tarifs {
+  color: #000000;
+  position: relative;
+  text-align: center;
+}
+
+.textes-tarifs {
+  text-align: justify;
+  margin: 0% 2%;
+}

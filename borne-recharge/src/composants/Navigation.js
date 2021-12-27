@@ -30,7 +30,7 @@ export default class Navigation extends Component {
             {/* Pages secondaires */}
             <Nav>
               <Nav.Link href="/">Accueil</Nav.Link>
-              <Nav.Link href="/Tarifs">Tarifs</Nav.Link>
+              <Nav.Link href="/Informations">Informations</Nav.Link>
               <Nav.Link href="/Abonnements">Abonnements</Nav.Link>
               <Nav.Link href="/Bornes">Bornes</Nav.Link>
               <NavDropdown title="Clients" id="basic-nav-dropdown">

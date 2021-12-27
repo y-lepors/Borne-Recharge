@@ -1,0 +1,20 @@
+.div-principal-selection-formation {
+  width: 25;
+}
+
+.titre-selection-formations,
+.button-ajouter-formation {
+  display: flex;
+  justify-content: center;
+}
+
+.div-selection {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+#dropdown-basic {
+  overflow-wrap: break-word;
+}

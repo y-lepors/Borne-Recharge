@@ -76,7 +76,7 @@ export default class Map extends Component {
         nomRecharge: "Standard",
         puissanceRecharge: 3,
         typeCourant: "Alternatif monophasé",
-        accesRecharge: "gratuit",
+        accesRecharge: "Gratuit",
       },
       {
         idRecharge: 3,
@@ -90,7 +90,7 @@ export default class Map extends Component {
         nomRecharge: "Standard",
         puissanceRecharge: 3,
         typeCourant: "Alternatif monophasé",
-        accesRecharge: "gratuit",
+        accesRecharge: "Gratuit",
       },
     ];
     bornes[1].recharges = [
