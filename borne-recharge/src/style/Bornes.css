@@ -13,8 +13,10 @@
 }
 
 .div-selections-bornes {
-  background-color: aqua;
-  width: 50%;
+  width: 40%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
 .div-selection {
@@ -24,11 +26,69 @@
   margin-right: 5%;
 }
 
+.div-montant-total-bornes {
+  display: flex;
+  justify-content: space-around;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
 #dropdown-basic {
   overflow-wrap: break-word;
 }
 
 .bornes-formulaire {
-  background-color: blueviolet;
-  width: 50%;
+  width: 60%;
+}
+
+.bornes-image-borne {
+  padding: 20px;
+}
+
+.div-boutons-acces {
+  display: flex;
+  justify-content: space-between;
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.button-acces {
+  width: 25%;
+}
+
+.div-puissance-input {
+  display: flex;
+  align-items: center;
+}
+
+.input-puissance-boutons {
+  display: flex;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.formulaire-contenu {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  align-items: center;
+  padding: 0% 5%;
+}
+
+.formulaire-inputs {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  justify-content: space-evenly;
+}
+
+.button-confirmation-commande,
+.button-confirmation-commande:hover {
+  background-color: #de8516;
+  border-color: #de8516;
+}
+
+.texte-mail-envoye {
+  text-align: center;
 }
