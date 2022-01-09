@@ -170,8 +170,9 @@ export default class Bornes extends Component {
           <div className="div-selections-bornes">
             <h4 className="bornes-sous-titre">Détails de la borne</h4>
 
-            {/* Liste déroulante des noms de la recharge */}
+            {/* Détails modifiables de la borne */}
             <div>
+              {/* Liste déroulante des noms de la recharge */}
               <div className="div-selection">
                 <p>Nom de la recharge</p>
                 <Dropdown>
