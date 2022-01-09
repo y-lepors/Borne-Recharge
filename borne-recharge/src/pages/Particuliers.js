@@ -16,13 +16,9 @@ export default class Particuliers extends Component {
       <div class="div-particuliers">
         <h1 class="titre-particuliers">Particuliers</h1>
 
-        <p></p>
-
-        
+        <p></p>    
         <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
         
-        
-
         <h2 class="h2-particuliers">Nos réseaux sociaux</h2>
         <br/>
 
